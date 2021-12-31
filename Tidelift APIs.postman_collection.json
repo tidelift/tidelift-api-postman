@@ -1,0 +1,400 @@
+{
+	"info": {
+		"_postman_id": "0f50a800-3e4e-4529-bb5e-5b7016e6edca",
+		"name": "Tidelift APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List all releases in a catalog",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_TOKEN}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.tidelift.com/external-api/v1/{{org_type}}/{{name}}/catalogs/{{catalog_name}}/releases",
+					"protocol": "https",
+					"host": [
+						"api",
+						"tidelift",
+						"com"
+					],
+					"path": [
+						"external-api",
+						"v1",
+						"{{org_type}}",
+						"{{name}}",
+						"catalogs",
+						"{{catalog_name}}",
+						"releases"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create new catalog request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_TOKEN}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"name\": \"string\",\n\"platform\": \"string\",\n\"version\": \"string\",\n\"message\": \"string\"\n}"
+				},
+				"url": {
+					"raw": "https://api.tidelift.com/external-api/v1/catalog/{{org_type}}/{{name}}/{{project}}/request",
+					"protocol": "https",
+					"host": [
+						"api",
+						"tidelift",
+						"com"
+					],
+					"path": [
+						"external-api",
+						"v1",
+						"catalog",
+						"{{org_type}}",
+						"{{name}}",
+						"{{project}}",
+						"request"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a new batch catalog request",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_TOKEN}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"packages\": [\n    {\n      \"platform\": \"string\",\n      \"name\": \"string\",\n      \"version\": \"string\"\n    }\n  ],\n  \"message\": \"string\"\n}"
+				},
+				"url": {
+					"raw": "https://api.tidelift.com/external-api/v1/catalog/{{org_type}}/{{name}}/{{project}}/batch_request",
+					"protocol": "https",
+					"host": [
+						"api",
+						"tidelift",
+						"com"
+					],
+					"path": [
+						"external-api",
+						"v1",
+						"catalog",
+						"{{org_type}}",
+						"{{name}}",
+						"{{project}}",
+						"batch_request"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Retrieve information on a package in a catalog",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_TOKEN}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.tidelift.com/external-api/v1/catalog/{{org_type}}/{{name}}/{{project}}/lookup/{{platform}}/{{package_name}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"tidelift",
+						"com"
+					],
+					"path": [
+						"external-api",
+						"v1",
+						"catalog",
+						"{{org_type}}",
+						"{{name}}",
+						"{{project}}",
+						"lookup",
+						"{{platform}}",
+						"{{package_name}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List organization projects",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_TOKEN}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.tidelift.com/external-api/v1/{{org_type}}/{{name}}/projects",
+					"protocol": "https",
+					"host": [
+						"api",
+						"tidelift",
+						"com"
+					],
+					"path": [
+						"external-api",
+						"v1",
+						"{{org_type}}",
+						"{{name}}",
+						"projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a new project",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_TOKEN}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"groups\": [\n    \"string\"\n  ],\n  \"catalog\": \"string\",\n  \"project_name\": \"string\"\n}"
+				},
+				"url": {
+					"raw": "https://api.tidelift.com/external-api/v1/{{org_type}}/{{name}}/projects",
+					"protocol": "https",
+					"host": [
+						"api",
+						"tidelift",
+						"com"
+					],
+					"path": [
+						"external-api",
+						"v1",
+						"{{org_type}}",
+						"{{name}}",
+						"projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create a new project API key",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_TOKEN}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.tidelift.com/external-api/v1/{{org_type}}/{{name}}/projects/{{project}}/new-key",
+					"protocol": "https",
+					"host": [
+						"api",
+						"tidelift",
+						"com"
+					],
+					"path": [
+						"external-api",
+						"v1",
+						"{{org_type}}",
+						"{{name}}",
+						"projects",
+						"{{project}}",
+						"new-key"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get a project's bill of materials",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_TOKEN}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.tidelift.com/external-api/v1/catalog/{{org_type}}/{{name}}/{{project}}/bill_of_materials",
+					"protocol": "https",
+					"host": [
+						"api",
+						"tidelift",
+						"com"
+					],
+					"path": [
+						"external-api",
+						"v1",
+						"catalog",
+						"{{org_type}}",
+						"{{name}}",
+						"{{project}}",
+						"bill_of_materials"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get recent saved alignments",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_TOKEN}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.tidelift.com/external-api/v1/catalog/{{org_type}}/{{name}}/{{project}}/alignments",
+					"protocol": "https",
+					"host": [
+						"api",
+						"tidelift",
+						"com"
+					],
+					"path": [
+						"external-api",
+						"v1",
+						"catalog",
+						"{{org_type}}",
+						"{{name}}",
+						"{{project}}",
+						"alignments"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List all catalogs for an organization",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_TOKEN}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.tidelift.com/external-api/v1/user/catalogs/{{org_type}}/{{name}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"tidelift",
+						"com"
+					],
+					"path": [
+						"external-api",
+						"v1",
+						"user",
+						"catalogs",
+						"{{org_type}}",
+						"{{name}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List all catalogs for a user",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_TOKEN}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.tidelift.com/external-api/v1/user/catalogs",
+					"protocol": "https",
+					"host": [
+						"api",
+						"tidelift",
+						"com"
+					],
+					"path": [
+						"external-api",
+						"v1",
+						"user",
+						"catalogs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get the latest catalog report",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{API_TOKEN}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.tidelift.com/external-api/v1/{{org_type}}/{{name}}/catalogs/{{catalog_name}}/reports/{{report_type}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"tidelift",
+						"com"
+					],
+					"path": [
+						"external-api",
+						"v1",
+						"{{org_type}}",
+						"{{name}}",
+						"catalogs",
+						"{{catalog_name}}",
+						"reports",
+						"{{report_type}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
